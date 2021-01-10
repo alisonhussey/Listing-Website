@@ -10,6 +10,7 @@
 
     <title>Home Page</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -19,11 +20,27 @@
   </head>
 
   <body>
-    <h1>Hello World!</h1>
+    <%- include('partials/_header') %>
 
+    <p>
+      Using a calculator she helped design, Jasmine Mah estimates it will still be eight months before she receives her two doses of COVID-19 vaccine.
+
+"So I'm in Stage 3, so I got some time before the end of August," Mah, who is in her late 20s, told CBC Toronto.
+
+To get that result, she entered some basic data into the tool she built — for example her age, and whether she's a health-care worker or living in a group setting.
+
+Using information gleaned from Canadian public health authorities about how many doses are set to be delivered and administered in the months to come, the calculator then spits out an estimate.
+
+The government of Canada has outlined who falls into the first two phases of the vaccine rollout, beginning with seniors, health-care workers, Indigenous adults and long-term care residents. The Ontario government website says Stage 3 will begin when "when vaccines are available for everyone who wants to be immunized. The ethical framework, data and available vaccine supply will help to prioritize groups in this phase."
+
+"It's still vague, and the provinces are still working things out, but at this point we're able to give a general idea," Mah said.
+    </p>
+
+    <%- include('partials/_footer') %>
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
   </body>
 </html>
