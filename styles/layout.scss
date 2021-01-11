@@ -11,5 +11,10 @@ body {
     padding-top: 1em;font-family: 'Yusei Magic', sans-serif;
     margin-top: 2em;
   }
+  .productsPrice {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
 
 }
