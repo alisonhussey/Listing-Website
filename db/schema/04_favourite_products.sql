@@ -7,3 +7,4 @@ CREATE TABLE favourite_products (
   product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
+
