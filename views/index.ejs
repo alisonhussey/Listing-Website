@@ -19,6 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Yusei+Magic&display=swap" rel="stylesheet">
 
+    <!-- JS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
@@ -26,19 +27,295 @@
   <body>
     <%- include('partials/_header') %>
 
-    <p>
-      Using a calculator she helped design, Jasmine Mah estimates it will still be eight months before she receives her two doses of COVID-19 vaccine.
+    <main style="margin: 2.1em;">
+      <!-- Page Content -->
+      <div class="container">
 
-"So I'm in Stage 3, so I got some time before the end of August," Mah, who is in her late 20s, told CBC Toronto.
+        <div class="row">
 
-To get that result, she entered some basic data into the tool she built — for example her age, and whether she's a health-care worker or living in a group setting.
+          <div class="col-lg-3">
 
-Using information gleaned from Canadian public health authorities about how many doses are set to be delivered and administered in the months to come, the calculator then spits out an estimate.
+            <h1 class="my-4">Cool Clothes</h1>
+            <div class="list-group">
+              <a href="#" class="list-group-item"><b>T-shirts</b></a>
+              <a href="#" class="list-group-item"><b>Jeans</b></a>
+              <a href="#" class="list-group-item"><b>Shoes</b></a>
+            </div>
 
-The government of Canada has outlined who falls into the first two phases of the vaccine rollout, beginning with seniors, health-care workers, Indigenous adults and long-term care residents. The Ontario government website says Stage 3 will begin when "when vaccines are available for everyone who wants to be immunized. The ethical framework, data and available vaccine supply will help to prioritize groups in this phase."
+          </div>
+          <!-- /.col-lg-3 -->
 
-"It's still vague, and the provinces are still working things out, but at this point we're able to give a general idea," Mah said.
-    </p>
+          <div class="col-lg-9">
+
+            <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                  <img class="d-block img-fluid" src="https://eco-age.com/wp-content/uploads/2018/10/images_news_18-10_adult-beautiful-clothes-291762.jpg" alt="First slide" style="width: 900; height: 350;">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block img-fluid" src="https://eco-age.com/wp-content/uploads/2018/10/images_news_18-10_adult-beautiful-clothes-291762.jpg" alt="Second slide" style="width: 900; height: 350;">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block img-fluid" src="https://eco-age.com/wp-content/uploads/2018/10/images_news_18-10_adult-beautiful-clothes-291762.jpg" alt="Third slide" style="width: 900; height: 350;">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.col-lg-9 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </main>
+
+    <div class="container">
+
+      <!-- Porducts Section -->
+      <h2>Products</h2>
+
+      <div class="row">
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F7e%2Fa2%2F7ea20b9aa81ed9e8d6480ba722d407608827182f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bkids_boy8y_topstshirts_shortsleeves%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/fullscreen]"
+               alt="3-pack Printed T-shirts" width="700" height="400"></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">3-pack Printed T-shirts</a>
+                <h5>$29.99</h5>
+              </h4>
+              <p class="card-text"><b>T-shirt in cotton jersey with a printed motif.</b>
+                <p>Pieces_3,</p>
+                <p>Composition_Cotton 100%,</p>
+                <p>Art. No._0713922018</p>
+              </p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">T-shirt</a>
+              <button type="button" class="btn btn-outline-danger">Favourite
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                  <path d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F1e%2F14%2F1e14e0bcd88936b54b6069e734e6fdc6c99c24b1.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bladies_tops_shortsleeve%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"
+              alt="T-shirt with Motif" width="700" height="400"></a>
+            <div class="card-body">
+             <h4 class="card-title">
+               <a href="#">T-shirt with Motif</a>
+               <h5>$14.99</h5>
+             </h4>
+             <p class="card-text"><b>Jersey T-shirt with a printed motif.</b>
+               <p>Size_The model is 178cm/5'10" and wears a size S,</p>
+               <p>Composition_Cotton 100%,</p>
+               <p>Art. No._0762470153</p>
+             </p>
+            </div>
+            <div class="card-footer">
+             <a href="#" class="btn btn-primary">T-shirt</a>
+             <button type="button" class="btn btn-outline-danger">Favourite
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                 <path d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+               </svg>
+             </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F24%2F6a%2F246a355ade3489189fadb4c915370e61d77b29a3.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_tshirtstanks_shortsleeve%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"
+              alt="Printed T-shirt" width="700" height="400"></a>
+            <div class="card-body">
+             <h4 class="card-title">
+               <a href="#">Printed T-shirt</a>
+               <h5>$24.99</h5>
+             </h4>
+             <p class="card-text"><b>T-shirt in soft cotton jersey with a printed design. Slightly wider neckline, short sleeves, and slightly longer, rounded hem at back. Raw edges at neckline and cuffs.</b>
+               <p>Size_The model is 186cm/6'1" and wears a size M,</p>
+               <p>Composition_Cotton 100%,</p>
+               <p>Art. No._0937387004</p>
+             </p>
+            </div>
+            <div class="card-footer">
+             <a href="#" class="btn btn-primary">T-shirt</a>
+             <button type="button" class="btn btn-outline-danger">Favourite
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                 <path d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+               </svg>
+             </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fb0%2F8c%2Fb08c4434cd7f57cb0276dab74fa2e7b1726da19f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bladies_jeans_loose%5D%2Ctype%5BDESCRIPTIVEDETAIL%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"
+              alt="Mom High Ankle Jeans" width="700" height="400"></a>
+            <div class="card-body">
+             <h4 class="card-title">
+               <a href="#">Mom High Ankle Jeans</a>
+               <h5>$39.99</h5>
+             </h4>
+             <p class="card-text"><b>5-pocket, ankle-length jeans in washed stretch cotton denim. Extra-high waist and straight legs. Slightly looser fit. Cotton content is partly recycled.</b>
+               <p>Size_The model is 175cm/5'9" and wears a size 4,</p>
+               <p>Fit_Loose fit,</p>
+               <p>Composition_Cotton 99%, Elastane 1%,</p>
+               <p>Art. No._0714790017</p>
+             </p>
+            </div>
+            <div class="card-footer">
+             <a href="#" class="btn btn-primary">Jeans</a>
+             <button type="button" class="btn btn-outline-danger">Favourite
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                 <path d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+               </svg>
+             </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Ff6%2F5b%2Ff65b8899602681921d5f3d04e8809274e4666a81.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bladies_jeans_loose%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"
+              alt="Mom High Ankle Jeans" width="700" height="400"></a>
+            <div class="card-body">
+             <h4 class="card-title">
+               <a href="#">Mom High Ankle Jeans</a>
+               <h5>$34.99</h5>
+             </h4>
+             <p class="card-text"><b>5-pocket, ankle-length jeans in washed denim. High waist, zip fly with button, and gently tapered legs.</b>
+               <p>Size_The model is 176cm/5'9" and wears a size 8,</p>
+               <p>Composition_Cotton 99%, Elastane 1%,</p>
+               <p>Product safetyFOR CHILD’S SAFETY, GARMENT SHOULD FIT SNUGLY. THIS GARMENT IS NOT FLAME RESISTANT. LOOSE-FITTING GARMENT IS MORE LIKELY TO CATCH FIRE.,</p>
+               <p>Art. No._0572998001</p>
+             </p>
+            </div>
+            <div class="card-footer">
+             <a href="#" class="btn btn-primary">Jeans</a>
+             <button type="button" class="btn btn-outline-danger">Favourite
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                 <path d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+               </svg>
+             </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F02%2F90%2F0290d66d70bcfaaa554193015044d5f06991b3e8.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_jeans_skinny%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/fullscreen]"
+              alt="Skinny Jeans" width="700" height="400"></a>
+            <div class="card-body">
+             <h4 class="card-title">
+               <a href="#">Skinny Jeans</a>
+               <h5>$49.99</h5>
+             </h4>
+             <p class="card-text"><b>5-pocket jeans in washed stretch denim with heavily distressed details. Regular waist, zip fly with button, and skinny legs. Made partly from recycled cotton.</b>
+               <p>Size_The model is 186cm/6'1" and wears a size 32/32,</p>
+               <p>Fit_Skinny fit,</p>
+               <p>Composition_Lining: Polyester 100%Cotton 98%, Elastane 2%</p>
+               <p>Art. No._0690449022</p>
+             </p>
+            </div>
+            <div class="card-footer">
+             <a href="#" class="btn btn-primary">Jeans</a>
+             <button type="button" class="btn btn-outline-danger">Favourite
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                 <path d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+               </svg>
+             </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F57%2F87%2F57877c69b78e63b2c5de485a1b428108008d8f51.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bladies_shoes_sneakers%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"
+              alt="Platform Sneakers" width="700" height="400"></a>
+            <div class="card-body">
+             <h4 class="card-title">
+               <a href="#">Platform Sneakers</a>
+               <h5>$34.99</h5>
+             </h4>
+             <p class="card-text"><b>Platform sneakers with lacing at front. Cotton canvas lining and insoles. Rubber soles. Platform height 1 1/2 in.</b>
+               <p>Composition_Sole: Rubber 100%Lining and insole: Cotton 100%Upper: Polyester 100%,</p>
+               <p>Art. No._0622958016</p>
+             </p>
+            </div>
+            <div class="card-footer">
+             <a href="#" class="btn btn-primary">Shoes</a>
+             <button type="button" class="btn btn-outline-danger">Favourite
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                 <path d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+               </svg>
+             </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fc9%2F67%2Fc9679e4286ab96cffb17f2d971918a890f5de747.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_shoes_sneakers%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"
+              alt="Canvas Sneakers" width="700" height="400"></a>
+            <div class="card-body">
+             <h4 class="card-title">
+               <a href="#">Canvas Sneakers</a>
+               <h5>$29.99</h5>
+             </h4>
+             <p class="card-text"><b>Canvas sneakers with a tongue and padded edge. Lacing at front and ventilation holes at one side with metal grommets. Fabric lining, fabric insoles, and patterned rubber soles.</b>
+               <p>Composition_Lining and insole: Cotton 100%Upper: Cotton 100%Sole: Rubber 100%,</p>
+               <p>Art. No._0843982001</p>
+             </p>
+            </div>
+            <div class="card-footer">
+             <a href="#" class="btn btn-primary">Shoes</a>
+             <button type="button" class="btn btn-outline-danger">Favourite
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                 <path d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+               </svg>
+             </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F24%2F13%2F2413e1dcf0a6596e36e979489398383205564fbe.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"
+              alt="High Tops" width="700" height="400"></a>
+            <div class="card-body">
+             <h4 class="card-title">
+               <a href="#">High Tops</a>
+               <h5>$59.99</h5>
+             </h4>
+             <p class="card-text"><b>High tops in faux leather and mesh with a padded upper edge and tongue. Lacing at front. Fabric lining, fabric insoles, and patterned soles. Sole thickness 1 1/4 in.</b>
+               <p>Composition_Sole: Thermoplastic rubber 100%Upper: Polyurethane 100%Lining and insole: Polyester 100%,</p>
+               <p>Art. No._0903355001</p>
+             </p>
+            </div>
+            <div class="card-footer">
+             <a href="#" class="btn btn-primary">Shoes</a>
+             <button type="button" class="btn btn-outline-danger">Favourite
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                 <path d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+               </svg>
+             </button>
+            </div>
+          </div>
+        </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
 
     <%- include('partials/_footer') %>
     <!-- Bootstrap JS -->
