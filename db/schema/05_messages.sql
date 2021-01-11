@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS message CASCADE;
 
-CREATE TABLE message (
+CREATE TABLE messages (
   id SERIAL PRIMARY KEY NOT NULL,
   content TEXT,
   time_sent TIMESTAMP,
-  user_id INTEGER REFERENCES user(id) ON DELETE CASCADE
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
