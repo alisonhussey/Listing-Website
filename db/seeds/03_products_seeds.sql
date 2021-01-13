@@ -1,20 +1,20 @@
 INSERT INTO products (name, photo_url, price, color, description, is_available, user_id, product_category_id)
-VALUES ('Cool T-shirt', 'url1', 2500, 'black', 'description', true, 1,  1);
+VALUES ('3-pack Printed T-shirts', 'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F7e%2Fa2%2F7ea20b9aa81ed9e8d6480ba722d407608827182f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bkids_boy8y_topstshirts_shortsleeves%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/fullscreen]', 3000, 'red', 'T-shirt in cotton jersey with a printed motif.', true, 1,  1);
 INSERT INTO products (name, photo_url, price, color, description, is_available, user_id, product_category_id)
-VALUES ('Awesome T-shirt', 'url2', 3500, 'white', 'description', true, 2, 1);
+VALUES ('T-shirt with Motif', 'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F1e%2F14%2F1e14e0bcd88936b54b6069e734e6fdc6c99c24b1.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bladies_tops_shortsleeve%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]', 1500, 'white', 'Jersey T-shirt with a printed motif.', true, 2, 1);
 INSERT INTO products (name, photo_url, price, color, description, is_available, user_id, product_category_id)
-VALUES ('Neat T-shirt', 'url3', 3000, 'purple', 'description', true, 3, 1);
+VALUES ('Printed T-shirt', 'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F24%2F6a%2F246a355ade3489189fadb4c915370e61d77b29a3.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_tshirtstanks_shortsleeve%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]', 2500, 'black', 'T-shirt in soft cotton jersey with a printed design.', true, 3, 1);
 
 INSERT INTO products (name, photo_url, price, color, description, is_available, user_id, product_category_id)
-VALUES ('Cool Jeans', 'url4', 7500, 'light blue', 'description', true, 1, 2);
+VALUES ('Mom High Ankle Jeans', 'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fb0%2F8c%2Fb08c4434cd7f57cb0276dab74fa2e7b1726da19f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bladies_jeans_loose%5D%2Ctype%5BDESCRIPTIVEDETAIL%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]', 4000, 'light blue', '5-pocket, ankle-length jeans in washed stretch cotton denim', true, 1, 2);
 INSERT INTO products (name, photo_url, price, color, description, is_available, user_id, product_category_id)
-VALUES ('Awesome Jeans', 'url5', 10000, 'dark blue', 'description', true,2,  2);
+VALUES ('Mom High Ankle Jeans', 'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Ff6%2F5b%2Ff65b8899602681921d5f3d04e8809274e4666a81.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bladies_jeans_loose%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]', 35000, 'light blue', '5-pocket, ankle-length jeans in washed denim.', true,2,  2);
 INSERT INTO products (name, photo_url, price, color, description, is_available, user_id, product_category_id)
-VALUES ('Neat Jeans', 'url6', 12000, 'black', 'description', true, 3, 2);
+VALUES ('Skinny Jeans', 'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F02%2F90%2F0290d66d70bcfaaa554193015044d5f06991b3e8.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_jeans_skinny%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/fullscreen]', 4900, 'black', '5-pocket jeans in washed stretch denim with heavily distressed details.', true, 3, 2);
 
 INSERT INTO products (name, photo_url, price, color, description, is_available, user_id, product_category_id)
-VALUES ('Cool Shoes', 'url7', 8000, 'black', 'description', true, 1, 3);
+VALUES ('Platform Sneakers', 'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F57%2F87%2F57877c69b78e63b2c5de485a1b428108008d8f51.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bladies_shoes_sneakers%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]', 3500, 'white', 'Platform sneakers with lacing at front.', true, 1, 3);
 INSERT INTO products (name, photo_url, price, color, description, is_available, user_id, product_category_id)
-VALUES ('Awesome Shoes', 'url8', 9000, 'purple', 'description', true, 2, 3);
+VALUES ('Canvas Sneakers', 'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fc9%2F67%2Fc9679e4286ab96cffb17f2d971918a890f5de747.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_shoes_sneakers%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]', 3000, 'black', 'Canvas sneakers with a tongue and padded edge.', true, 2, 3);
 INSERT INTO products (name, photo_url, price, color, description, is_available, user_id, product_category_id)
-VALUES ('Neat Shoes', 'url9', 10000, 'white', 'description', true, 3, 3);
+VALUES ('High Tops', 'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F24%2F13%2F2413e1dcf0a6596e36e979489398383205564fbe.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]', 6000, 'white', 'High tops in faux leather and mesh with a padded upper edge and tongue.', true, 3, 3);
