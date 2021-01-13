@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <title>Login</title>
+    <title>Sign Up</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -42,15 +42,22 @@
                     <p class="mb-4"></p>
                   </div>
                   <form action="/signup" method="post">
+                  </div>
+                  <div class="form-group last mb-4">
+                    <label for="first_name">First Name:</label>
+                    <input name="first_name" type="name" placeholder="John" class="form-control" id="name">
+                  </div>
+                  <div class="form-group last mb-4">
+                    <label for="last_name">Last Name:</label>
+                    <input name="last_name" type="name" placeholder="Smith" class="form-control" id="name">
+                  </div>
                     <div class="form-group first">
-                      <label for="username">Username:</label>
-                      <input type="text" class="form-control" id="username">
-
+                      <label for="email">Email:</label>
+                      <input name="email" type="email" placeholder="example@example.com" class="form-control" id="email">
                     </div>
                     <div class="form-group last mb-4">
                       <label for="password">Password:</label>
-                      <input type="password" class="form-control" id="password">
-
+                      <input name="password" type="password" placeholder="password" class="form-control" id="password">
                     </div>
 
                     <div class="d-flex mb-5 align-items-center">
