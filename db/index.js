@@ -145,7 +145,18 @@ const getProductsByPrice = function(category){
 };
 exports.getProductsByPrice = getProductsByPrice;
 
-
-
-
+const getConversationsByUserId = function (user) {
+  const queryString = `
+  SELECT users.first_name as name, messages.content, messages.time_sent
+  FROM messages
+  JOIN users ON messages.sender = users.id
+  WHERE sender = 1
+  ORDER BY messages.time_sent;
+  `
+  const values = [user.id];
+  return pool.query(queryString, values)
+  .then(res => res.rows)
+  .catch(err => console.log(err.stack));
+};
+exports.getConversationsByUserId = getConversationsByUserId;
 
