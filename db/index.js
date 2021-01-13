@@ -131,15 +131,27 @@ const getProductsByCategory = function(category){
 };
 exports.getProductsByCategory = getProductsByCategory;
 
-const getProductsByPrice = function(category){
+const getProductsByPrice = function(options){
+  const queryParams = [];
   const queryString = `
   SELECT *
   FROM products
-  WHERE price >= $1 AND price <= $2
-  ORDER BY price;
-  `
-  const values = [category.name];
-  return pool.query(queryString, values)
+  `;
+  if (options.minimum_price) {
+    queryParams.push(options.minimum_price);
+    queryString += `WHERE price/100 >= $${queryParams.length}`;
+  }
+  if (options.maximum_price) {
+    queryParams.push(options.maximum_price);
+    if (queryParams === 1) {
+      queryString += `AND price/100 <= $${queryParams.length}`;
+    } else {
+      queryString += `WHERE price/100 <= $${queryParams.length}`;
+    }
+
+  }
+
+  return pool.query(queryString, queryParams)
   .then(res => res.rows)
   .catch(err => console.log(err.stack));
 };
@@ -162,14 +174,14 @@ exports.getConversationsByUserId = getConversationsByUserId;
 
 const getConversationsByProductId = function(product) {
   const queryString = `
-  SELECT users.first_name as name, messages.content, messages.time_sent
-FROM messages
-JOIN conversations ON conversations.id = messages.conversation_id
-JOIN products ON products.id = conversations.product_id
-JOIN users ON users.id = user_id
-WHERE product_id = $1
-GROUP BY product_id, users.first_name, messages.content, messages.time_sent
-ORDER BY messages.time_sent;
+  SELECT messageUsers.first_name, messages.content, messages.time_sent
+  FROM messages
+  JOIN users as messageUsers ON messages.sender = messageUsers.id
+  JOIN conversations ON conversations.id = messages.conversation_id
+  JOIN products ON products.id = conversations.product_id
+  JOIN users ON users.id = user_id
+  WHERE product_id = 3
+  ORDER BY messages.time_sent;
  `
 const values = [product.id];
 return pool.query(queryString, values)
