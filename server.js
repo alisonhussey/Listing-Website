@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const cookieSession = require('cookie-session');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -31,24 +32,34 @@ app.use("/styles", sass({
 }));
 app.use(express.static("public"));
 
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1']
+}));
+
 // Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
-const widgetsRoutes = require("./routes/widgets");
+
+const indexRoutes = require("./routes/index");
+const signupRoutes = require("./routes/signup");
+const loginRoutes = require("./routes/login");
+const logoutRoutes = require("./routes/logout");
 
 // Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
-// Note: mount other resources here, using the same pattern above
+
+app.use("/", indexRoutes(db))
+app.use("/signup", signupRoutes(db));
+app.use("/login", loginRoutes(db));
+app.use("/logout", logoutRoutes(db));
 
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-app.get("/", (req, res) => {
-  res.render("index");
-});
+// app.get("/", (req, res) => {
+//   res.render("index");
+// });
 
 //Code Below Shall Be Reorganized in Appropriate End-Point Files
 
@@ -75,23 +86,23 @@ app.get("/about", (req, res) => {
 });
 
 //Sign Up - Render Page
-app.get("/signup", (req, res) => {
-  res.render("signup");
-});
+// app.get("/signup", (req, res) => {
+//   res.render("signup");
+// });
 
 //Sign Up - Post
 //Will need to check fields left empty - 400/401
 //Will need to check if email taken - 400/403
 //If all ok, will create new user
 //Redirect to Products Page
-app.post("/signup", (req, res) => {
-  res.send("Signed Up");
-});
+// app.post("/signup", (req, res) => {
+//   res.send("Signed Up");
+// });
 
 //Log In - Render Page
-app.get("/login", (req, res) => {
-  res.render("login");
-});
+// app.get("/login", (req, res) => {
+//   res.render("login");
+// });
 
 //Log In User - Post
 //Will need to check fields left empty - 401
