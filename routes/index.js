@@ -7,6 +7,8 @@ module.exports = (db) => {
     // const templateVars = {
     //   user: req.session["userName"]
     // };
+    console.log("HELLLOOOOOOOOOOOOOOOO");
+    console.log(req.session);
     // console.log("Template Variables are:", templateVars);
     res.render("index"/*, templateVars*/);
 });
