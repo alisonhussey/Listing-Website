@@ -17,8 +17,6 @@ get all products
 
 get favourite products for user_id
 
-search by category
-
 search by price
 
 
@@ -27,3 +25,4 @@ find conversations by product_id
 find conversations by user_id
 
 STRETCH: search form query
+search by category
