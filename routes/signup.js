@@ -12,22 +12,28 @@ module.exports = (db) => {
 
   //Create a new user
   router.post("/", (req, res) => {
-    let username = req.body.username;
-    //user.email=req.body.email
+    if (!req.body.first_name || !req.body.last_name || !req.body.email || !req.body.password) {
+      res.status(400).send('A field has been left empty. Please return and try again.');
+    } else {
+      //Create user object
+    let first_name = req.body.first_name;
+    let last_name = req.body.last_name;
+    let email = req.body.email;
     let password = bcrypt.hashSync(req.body.password, 12);
-    const user = {username, password, first_name: "Alex", last_name: "Neville", email: "blabla@blabla.com", is_admin: false}
-    console.log("Hello!", user, username, password)
-    // helpers.addUser(user)
-    // .then(user => {
-    //   if (!user) {
-    //     res.send({error: "error"});
-    //     return;
-    //   }
-    //   //req.session.userId = user.id;
-    //   res.send("🤗");
+    const user = {first_name, last_name, email, password, is_admin: false}
+    //console.log("Hello!", user)
+    //Check against Database
+    helpers.addUser(user)
+    .then(user => {
+      if (!user) {
+        res.send({error: "error"});
+        return;
+      }
+      //req.session.userId = user.id;
       res.redirect("/");
-    // })
-    // .catch(e => res.send(e));
+    })
+    .catch(e => res.send(e));
+    }
   });
   return router;
 };
