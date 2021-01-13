@@ -1,0 +1,18 @@
+add new user - done
+find user by email - done
+find user by user_id - done
+
+add new product -done
+mark product as sold - done
+delete product - done
+get all products - done
+
+get favourite products for user_id - done
+
+search by category - done
+search by price - done
+
+find conversations by product_id
+find conversations by user_id - done
+
+STRETCH: search form query

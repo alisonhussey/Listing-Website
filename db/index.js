@@ -6,20 +6,6 @@ const pool = new Pool({
   host: 'localhost',
   database: 'midterm'
 });
-
-const getUserWithEmail = function(email) {
-  const queryString = `
-  SELECT *
-  FROM users
-  WHERE email = $1;
-  `
-  return pool.query(queryString, [email])
-  .then(res => res.rows[0])
-  .catch(err => console.log(err.stack));
-}
-
-exports.getUserWithEmail = getUserWithEmail;
-
 const addUser =  function(user) {
   const queryString = `
   INSERT INTO users (first_name, last_name, email, password, is_admin)
@@ -30,8 +16,33 @@ const addUser =  function(user) {
   return pool.query(queryString, values)
   .then(res => res.rows[0])
   .catch(err => console.log(err.stack));
-}
+};
 exports.addUser = addUser;
+
+const getUserWithEmail = function(email) {
+  const queryString = `
+  SELECT *
+  FROM users
+  WHERE email = $1;
+  `
+  return pool.query(queryString, [email])
+  .then(res => res.rows[0])
+  .catch(err => console.log(err.stack));
+};
+exports.getUserWithEmail = getUserWithEmail;
+
+const getUserWithId = function(id) {
+  const queryString = `
+    SELECT *
+    FROM users
+    WHERE id = $1;
+  `;
+  const values = [id];
+  return pool.query(queryString, values)
+    .then(res => res.rows[0] || null)
+    .catch(err => console.log(err.stack));
+};
+exports.getUserWithId = getUserWithId;
 
 const addProduct = function(product) {
   const queryString = `INSERT INTO products (name, photo_url, price, color, description, is_available, user_id, product_category_id)
@@ -53,48 +64,6 @@ const addProduct = function(product) {
   .catch(err => console.log(err.stack));
 };
 exports.addProduct = addProduct;
-
-const getProductsByCategory = function(category){
-  const queryString = `
-  SELECT *
-  FROM products
-  JOIN product_categories ON product_categories.id = product_category_id
-  WHERE product_categories.name = $1;
-  `
-  const values = [category.name];
-  return pool.query(queryString, values)
-  .then(res => res.rows)
-  .catch(err => console.log(err.stack));
-};
-exports.getProductsByCategory = getProductsByCategory;
-
-
-const getUserWithId = function(id) {
-  const queryString = `
-    SELECT *
-    FROM users
-    WHERE id = $1;
-  `;
-  const values = [id];
-  return pool.query(queryString, values)
-    .then(res => res.rows[0] || null)
-    .catch(err => console.log(err.stack));
-}
-exports.getUserWithId = getUserWithId;
-
-const getProductsByPrice = function(category){
-  const queryString = `
-  SELECT *
-  FROM products
-  WHERE price >= $1 AND price <= $2
-  ORDER BY price;
-  `
-  const values = [category.name];
-  return pool.query(queryString, values)
-  .then(res => res.rows)
-  .catch(err => console.log(err.stack));
-};
-exports.getProductsByPrice = getProductsByPrice;
 
 const markAsSold = function(product) {
   const queryString = `
@@ -126,7 +95,6 @@ const getAllProducts = function() {
   SELECT *
   FROM products;
   `
-
   return pool.query(queryString)
   .then(res => res.rows)
   .catch(err => console.log(err.stack));
@@ -147,4 +115,37 @@ const getFavouritesByUser = function(user) {
   .catch(err => console.log(err.stack));
 };
 exports.getFavouritesByUser = getFavouritesByUser;
+
+
+const getProductsByCategory = function(category){
+  const queryString = `
+  SELECT *
+  FROM products
+  JOIN product_categories ON product_categories.id = product_category_id
+  WHERE product_categories.name = $1;
+  `
+  const values = [category.name];
+  return pool.query(queryString, values)
+  .then(res => res.rows)
+  .catch(err => console.log(err.stack));
+};
+exports.getProductsByCategory = getProductsByCategory;
+
+const getProductsByPrice = function(category){
+  const queryString = `
+  SELECT *
+  FROM products
+  WHERE price >= $1 AND price <= $2
+  ORDER BY price;
+  `
+  const values = [category.name];
+  return pool.query(queryString, values)
+  .then(res => res.rows)
+  .catch(err => console.log(err.stack));
+};
+exports.getProductsByPrice = getProductsByPrice;
+
+
+
+
 
