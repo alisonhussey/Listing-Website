@@ -145,12 +145,12 @@ const getProductsByPrice = function(category){
 };
 exports.getProductsByPrice = getProductsByPrice;
 
-const getConversationsByUserId = function (user) {
+const getConversationsByUserId = function(user) {
   const queryString = `
   SELECT users.first_name as name, messages.content, messages.time_sent
   FROM messages
   JOIN users ON messages.sender = users.id
-  WHERE sender = 1
+  WHERE sender = $1
   ORDER BY messages.time_sent;
   `
   const values = [user.id];
@@ -160,3 +160,20 @@ const getConversationsByUserId = function (user) {
 };
 exports.getConversationsByUserId = getConversationsByUserId;
 
+const getConversationsByProductId = function(product) {
+  const queryString = `
+  SELECT users.first_name as name, messages.content, messages.time_sent
+FROM messages
+JOIN conversations ON conversations.id = messages.conversation_id
+JOIN products ON products.id = conversations.product_id
+JOIN users ON users.id = user_id
+WHERE product_id = $1
+GROUP BY product_id, users.first_name, messages.content, messages.time_sent
+ORDER BY messages.time_sent;
+ `
+const values = [product.id];
+return pool.query(queryString, values)
+  .then(res => res.rows)
+  .catch(err => console.log(err.stack));
+};
+exports.getConversationsByProductId = getConversationsByProductId;
