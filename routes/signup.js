@@ -9,7 +9,7 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     if (req.session.isNew) {
       const templateVars = {
-        user: req.session.userEmail
+        user: req.session.userId
       };
       res.render("signup", templateVars);
     } else {
