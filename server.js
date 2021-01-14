@@ -41,25 +41,33 @@ app.use(cookieSession({
 const usersRoutes = require("./routes/users");
 
 const indexRoutes = require("./routes/index");
+const aboutRoutes = require("./routes/about");
 const signupRoutes = require("./routes/signup");
 const loginRoutes = require("./routes/login");
 const logoutRoutes = require("./routes/logout");
 const productsRoutes = require("./routes/products");
+const fbpRoutes = require("./routes/filterbyprice");
+const createnewRoutes = require("./routes/createnew");
+const searchRoutes = require("./routes/search");
 
 
 // Mount all resource routes
 app.use("/api/users", usersRoutes(db));
 
 app.use("/", indexRoutes(db))
+app.use("/about", aboutRoutes(db))
 app.use("/signup", signupRoutes(db));
 app.use("/login", loginRoutes(db));
 app.use("/logout", logoutRoutes(db));
 app.use("/products", productsRoutes(db));
+app.use("/filterbyprice", fbpRoutes(db));
+app.use("/createnew", createnewRoutes(db));
+app.use("/search", searchRoutes(db));
 
 
 
 
-// Home page
+// Home page OK
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 // app.get("/", (req, res) => {
@@ -68,14 +76,15 @@ app.use("/products", productsRoutes(db));
 
 //Code Below Shall Be Reorganized in Appropriate End-Point Files
 
+//WORKING ON THIS ONE
 //If not user, attempting tp use functionalities redirect to Log In
 //If user, functionalities do not redirect to Log In (But actually do their function)
 //If user Admin, sees Amin options (Mark as sold, Delete)
-app.get("/products", (req, res) => {
-  res.render("products");
-});
+// app.get("/products", (req, res) => {
+//   res.render("products");
+// });
 
-//Render Create Products Page (Only Admin)
+//Render Create Products Page (Only Admin) FILE CREATED
 // app.get("/products/new", (req, res) => {
 //
 // });
@@ -85,17 +94,17 @@ app.get("/products", (req, res) => {
 //
 // });
 
-//About Us - Render Page
-app.get("/about", (req, res) => {
-  res.render("about");
-});
+//About Us - Render Page OK
+// app.get("/about", (req, res) => {
+//   res.render("about");
+// });
 
-//Sign Up - Render Page
+//Sign Up - Render Page OK
 // app.get("/signup", (req, res) => {
 //   res.render("signup");
 // });
 
-//Sign Up - Post
+//Sign Up - Post OK
 //Will need to check fields left empty - 400/401
 //Will need to check if email taken - 400/403
 //If all ok, will create new user
@@ -104,12 +113,12 @@ app.get("/about", (req, res) => {
 //   res.send("Signed Up");
 // });
 
-//Log In - Render Page
+//Log In - Render Page OK
 // app.get("/login", (req, res) => {
 //   res.render("login");
 // });
 
-//Log In User - Post
+//Log In User - Post OK
 //Will need to check fields left empty - 401
 //Will need to check email exists - 403
 //Check if email & password matches - 403
@@ -118,31 +127,31 @@ app.get("/about", (req, res) => {
 //   res.send("Logged In");
 // });
 
-//Log Out User
+//Log Out User OK
 // app.post("/logout", (req, res) => {
 //   //req.session = null;
 //   // res.redirect("/urls");
 //   res.send("Logged Out")
 // });
 
-//Favourites - Render Page
+//Favourites - Render Page FILE CREATED
 //Check user cookie
 //Return what favourited products that match user id
-app.get("/products/favourites", (req, res) => {
+//app.get("/products/favourites", (req, res) => {
   //res.render("favourites");
-});
+//});
 
 //Favourite Product
 //Add entry to favourites db
-app.post("/products/:product_id/favourite", (req, res) => {
+//app.post("/products/:product_id/favourite", (req, res) => {
   //res.send("Add product");
-});
+//});
 
 //Unfavourite Product
 //Deletes entry from favourites db
-app.post("/products/:product_id/favourite", (req, res) => {
+//app.post("/products/:product_id/favourite", (req, res) => {
   //res.send("Delete product");
-});
+//);
 
 //Product - Render Unique Page
 // app.get("/product/:products_id", (req, res) => {
@@ -150,14 +159,14 @@ app.post("/products/:product_id/favourite", (req, res) => {
 // });
 
 //List all messages for each user grouped by product
-app.get("/messages", (req, res) => {
+//app.get("/messages", (req, res) => {
   //res.render("messages");
-});
+//});
 
 // List messages for each user on the product page
-app.get("/messages/:conversation_id", (req, res) => {
+//app.get("/messages/:conversation_id", (req, res) => {
   // res.render("productsMessaged");
-});
+//});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

@@ -24,15 +24,20 @@ module.exports = (db) => {
       router.post("/", (req, res) => {
         let user_id = req.session.userId;
         let product_id = Number(req.body.product_id);
-        const queryString = `
-        INSERT INTO favorite_products (user_id, product_id)
-        VALUES
-        ($1, $2)
-        ;` ;
-        const values = [user_id, product_id];
-          return db.query(queryString, values)
-          .then(res=> {
-            res.send("Success!")
+        // const queryString = `
+        // INSERT INTO favorite_products (user_id, product_id)
+        // VALUES
+        // ($1, $2)
+        // ;` ;
+        // const values = [user_id, product_id];
+        //   return db.query(queryString, values)
+        //   .then(res=> {
+        //     res.send("Success!")
+        helpers.addFavourite(favourite)
+        .then(favourite => {
+          //favourite.user_id
+          //favourite.product_id
+          res.send("Success!")
           })
           .catch(err => {
             return console.log('query error:', err);

@@ -3,13 +3,11 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    //Cookie set up
     const templateVars = {
       user: req.session.userId
     };
-    // console.log("Template Variables are:", templateVars);
-    //console.log(req.session)
-    res.render("index", templateVars);
+    //We don't have this page in views yet
+    res.render("search", templateVars);
 });
   return router;
 };
