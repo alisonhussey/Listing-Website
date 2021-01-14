@@ -11,6 +11,7 @@ module.exports = (db) => {
           user: req.session.userId,
           isAdmin: req.session.isAdmin,
           products: products
+          //products: products[0].id
         };
         console.log("Template Variables are:", templateVars);
         res.render('products', templateVars)
@@ -20,6 +21,16 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message });
       });
+  });
+
+  //Rendering each Product Page
+  router.get("/:product_id", (req, res) => {
+    const templateVars = {
+      product_id: helpers.getProductById[req.params.product_id],
+      user: req.session.userId
+    };
+    res.render("productTwo", templateVars);
+});
 
       router.post("/", (req, res) => {
         let user_id = req.session.userId;
@@ -42,9 +53,16 @@ module.exports = (db) => {
           .catch(err => {
             return console.log('query error:', err);
           })
-        });
+      });
 
-  });
+      router.post("/:product_id/delete", (req, res) => {
+        if (isAdmin) {
+          helpers.deleteProduct(product_id);
+          res.redirect("/products");
+        } else {
+          res.status(403).send('Not authorized for this option!');
+        }
+      });
 
   return router;
 };

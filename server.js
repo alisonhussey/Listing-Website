@@ -17,6 +17,8 @@ const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
 
+const helpers = require('./db/index')
+
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -154,9 +156,14 @@ app.use("/search", searchRoutes(db));
 //);
 
 //Product - Render Unique Page
-// app.get("/product/:products_id", (req, res) => {
-//   res.render("/productURL");
+// app.get("/products/:product_id", (req, res) => {
+//     const templateVars = {
+//       product_id: helpers.getProductById[req.params.product_id],
+//       user: req.session.userId
+//     };
+//     res.render("productTwo", templateVars);
 // });
+
 
 //List all messages for each user grouped by product
 //app.get("/messages", (req, res) => {
