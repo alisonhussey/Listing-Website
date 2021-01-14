@@ -24,8 +24,8 @@ module.exports = (db) => {
         console.log("user match in database");
         //req.session.userEmail = user.email;
         req.session.userId = user.id;
-        //req.session.isAdmin = user.isAdmin
-        res.redirect("/");
+        req.session.isAdmin = user.is_admin;
+        res.redirect("/products");
       } else {
         console.log("user not matched in database");
         res.redirect("/login");

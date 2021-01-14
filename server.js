@@ -44,6 +44,8 @@ const indexRoutes = require("./routes/index");
 const signupRoutes = require("./routes/signup");
 const loginRoutes = require("./routes/login");
 const logoutRoutes = require("./routes/logout");
+const productsRoutes = require("./routes/products");
+
 
 // Mount all resource routes
 app.use("/api/users", usersRoutes(db));
@@ -52,6 +54,9 @@ app.use("/", indexRoutes(db))
 app.use("/signup", signupRoutes(db));
 app.use("/login", loginRoutes(db));
 app.use("/logout", logoutRoutes(db));
+app.use("/products", productsRoutes(db));
+
+
 
 
 // Home page
@@ -109,16 +114,16 @@ app.get("/about", (req, res) => {
 //Will need to check email exists - 403
 //Check if email & password matches - 403
 //Redirect to Home Page
-app.post("/login", (req, res) => {
-  res.send("Logged In");
-});
+// app.post("/login", (req, res) => {
+//   res.send("Logged In");
+// });
 
 //Log Out User
-app.post("/logout", (req, res) => {
-  //req.session = null;
-  // res.redirect("/urls");
-  res.send("Logged Out")
-});
+// app.post("/logout", (req, res) => {
+//   //req.session = null;
+//   // res.redirect("/urls");
+//   res.send("Logged Out")
+// });
 
 //Favourites - Render Page
 //Check user cookie
