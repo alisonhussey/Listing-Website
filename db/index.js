@@ -180,7 +180,7 @@ const getConversationsByProductId = function(product) {
   JOIN conversations ON conversations.id = messages.conversation_id
   JOIN products ON products.id = conversations.product_id
   JOIN users ON users.id = user_id
-  WHERE product_id = 3
+  WHERE product_id = $1
   ORDER BY messages.time_sent;
  `
 const values = [product.id];
@@ -194,7 +194,7 @@ const getProductById = function(product) {
   const queryString = `
   SELECT *
   FROM products
-  WHERE id = 1;
+  WHERE id = $1;
   `
   const values = [product.id]
   return pool.query(queryString, values)
