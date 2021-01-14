@@ -52,8 +52,8 @@ const addProduct = function(product) {
   const values = [
     product.name,
     product.photo_url,
-    product. price,
-    product. color,
+    product.price,
+    product.color,
     product.description,
     product.is_available,
     product.user_id,
