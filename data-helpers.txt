@@ -1,28 +1,30 @@
-add new user
+addUser
 
-find user by email
+getUserWithEmail
 
-find user by user_id
+getUserWithId
 
+addProduct
 
-add new product
+markAsSold
 
-mark product as sold
+deleteProduct
 
-delete product
+getAllProducts
 
+getFavouritesByUser
 
+getProductsByCategory
 
-get all products
+getProductsByPrice
 
-get favourite products for user_id
+getConversationsByUserId
 
-search by price
+getConversationsByProductId
 
+getProductById
 
-find conversations by product_id
+addMessage
 
-find conversations by user_id
+addFavourite
 
-STRETCH: search form query
-search by category

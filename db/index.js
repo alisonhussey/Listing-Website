@@ -220,3 +220,16 @@ const addMessage = function(message) {
   .catch(err => console.log(err.stack));
 };
 exports.addMessage = addMessage;
+
+const addFavourite = function(favourite) {
+  const queryString = `
+    INSERT INTO favorite_products (time_created, product_id, user_id)
+    VALUES($1, $2, $3)
+    RETURNING *;
+  `
+  const values = [favourite]
+  return pool.query(queryString, values)
+  .then(res => res.rows[0])
+  .catch(err => console.log(err.stack));
+};
+exports.addFavourite = addFavourite;
