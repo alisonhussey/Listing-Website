@@ -189,3 +189,34 @@ return pool.query(queryString, values)
   .catch(err => console.log(err.stack));
 };
 exports.getConversationsByProductId = getConversationsByProductId;
+
+const getProductById = function(product) {
+  const queryString = `
+  SELECT *
+  FROM products
+  WHERE id = 1;
+  `
+  const values = [product.id]
+  return pool.query(queryString, values)
+  .then(res => res.rows[0])
+  .catch(err => console.log(err.stack));
+};
+exports.getProductById = getProductById;
+
+const addMessage = function(message) {
+  const queryString = `
+  INSERT INTO messages (content, time_sent, conversation_id, sender)
+  VALUES ($1, $2, $3, $4)
+  RETURNING *;
+  `
+  const values = [
+    message.content,
+    message.time_spent,
+    message.conversation_id,
+    message.sender
+  ]
+  return pool.query(queryString, values)
+  .then(res => res.rows[0])
+  .catch(err => console.log(err.stack));
+};
+exports.addMessage = addMessage;
