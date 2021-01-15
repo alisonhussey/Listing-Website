@@ -27,44 +27,46 @@
   <body>
     <%- include('partials/_header') %>
 
-    <main style="margin: 1em;">
-      <h3>Create new Product</h3>
+    <main style="margin: 6em; font-family: 'Yusei Magic', sans-serif; border: 0.1in solid rosybrown; padding: 2em;">
+      <div>
+        <h3 style="margin-bottom: 1em;">Create new Product 📝</h3>
+      </div>
 
-      </form>
-      <form action="/products/new" method="post" id="new-property-form" class="new-property-form" style="margin-top: 5em;">
+      <form action="/products/new" method="post" id="new-property-form" class="new-property-form">
         <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__cost">Product name: </label>
+          <label for="new-property-form__cost"><b> Product name: </b></label>
           <input placeholder="name of product" type="text" name="name" id="new-property-form__cost">
         </div>
         <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__thumbnail"> Photo url: </label>
+          <label for="new-property-form__thumbnail"><b> Photo url:    </b></label>
           <input placeholder="http://" type="text" name="photo_url" id="new-property-form__thumbnail">
         </div>
         <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__cost">  Price:  </label>
-          <input placeholder="price" type="number" name="price" id="new-property-form__cost">
+          <label for="new-property-form__cost"><b>  Price: </b></label>
+          <input placeholder="$" type="number" name="price" id="new-property-form__cost">
         </div>
         <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__title"> Color: </label>
+          <label for="new-property-form__title"><b> Color: </b></label>
           <input type="text" name="color" placeholder="color" id="new-property-form__title">
         </div>
 
         <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__description"> Description: </label>
+          <label for="new-property-form__description"><b> Description: </b></label>
           <textarea placeholder="Description" name="description" id="property-form__description" cols="30" rows="3"></textarea>
 
         </div>
         <div class="d-flex mb-5 align-items-center">
-          <label class="control control--checkbox mb-0"><span class="caption"> Is available? </span>
+          <label class="control control--checkbox mb-0"><span class="caption"><b> Is available? </b></span>
             <input type="checkbox" checked="checked" name="is_available"/>
             <div class="control__indicator"></div>
           </label>
         </div>
         <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__cost"> Category: </label>
+          <label for="new-property-form__cost"><b> Category: </b></label>
           <input placeholder="Category Id" type="number" name="product_category_id" id="new-property-form__cost">
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
         <hr>
       </form>
     </main>
