@@ -29,31 +29,28 @@
     <!-- Page Content -->
   <div class="container">
 
-    <div class="row">
+    <div class="row" style="margin-top: 2em;">
 
 
       <div class="col-lg-12">
 
 
-          <div class="row" style="justify-content: center;">
-            <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="row" style="justify-content: center; margin-top: 4em;">
+            <div class="col-sm-5">
               <div class="card h-100">
-                <a href=<%= `/products/${product.id}`%> ><img class="card-img-top" src= "<%= product.photo_url %>" alt="3-pack Printed T-shirts" width="700" height="400" name='product_id'></a>
+                <a href=<%= `/products/${product.id}`%> ><img class="card-img-top" src= "<%= product.photo_url %>" alt="3-pack Printed T-shirts" width="700" height="600" name='product_id'></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href=<%= `/products/${product.id}`%>><%= product.name %></a>
-                    <h5>$<%= product.price %></h5>
+                    <h5>$<%= product.price/100 %></h5>
                   </h4>
                   <p class="card-text"><b><%= product.description %></b>
                     <p><%= product.color %>,</p>
-                    <p>Pieces_3,</p>
-                    <p>Composition_Cotton 100%,</p>
                     <p>Art. No._0713922018</p>
                   </p>
                 </div>
                 <div class="card-footer">
 
-                  <a href=<%= `/products/${product.id}`%> class="btn btn-primary">+ more</a>
                   <% if(!!user){ %>
                   <form method="POST" action="<%=`/products/${product.id}/favourite`%>">
                     <button type="submit" class="btn btn-outline-danger">Favourite
@@ -74,7 +71,13 @@
             Product Reviews
           </div>
           <div class="card-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+            <p>Overall I'm very happy with Cool Clothes, love the membership free delivery service and my whole family wears Cool Clothes clothes and we love it. The reason for the 3 stars is some of the deliveries arrive unsealed and the other day a dress for my daughter arrived wet because it wasn't sealed and probably in the rain (hopefully). Another dress arrived inside out and looked like it was squashed in the packet. The other clothes were sealed. This is happening often now.</p>
+            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+            <hr>
+            <p>no issue, great prices with free delivery online.</p>
+            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+            <hr>
+            <p>I ordered two items separately, both arrived quickly. One was kept the other had to be returned, I’m a bit panicky about online returns but I returned on 4 Jan and the money was back in my account on 7 Jan.</p>
             <small class="text-muted">Posted by Anonymous on 3/1/17</small>
             <hr>
             <a href="#" class="btn btn-success">Leave a Review</a>

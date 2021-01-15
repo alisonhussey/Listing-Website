@@ -41,9 +41,9 @@
       <hr>
       <% for(let product of products) { %>
       <div class="row" style="justify-content: center;">
-        <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="col-sm-5">
           <div class="card h-100">
-            <a href=<%= `/products/${product.id}`%> ><img class="card-img-top" src= "<%= product.photo_url %>" alt="3-pack Printed T-shirts" width="700" height="400" name='product_id'></a>
+            <a href=<%= `/products/${product.id}`%> ><img class="card-img-top" src= "<%= product.photo_url %>" alt="3-pack Printed T-shirts" width="700" height="600" name='product_id'></a>
             <div class="card-body">
               <h4 class="card-title">
                 <a href=<%= `/products/${product.id}`%>><%= product.name %></a>
