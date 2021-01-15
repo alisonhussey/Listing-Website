@@ -78,14 +78,15 @@ const markAsSold = function(product) {
 };
 exports.markAsSold = markAsSold;
 
-const deleteProduct = function(product) {
+const deleteProduct = function(product_id) {
   const queryString = `
     DELETE FROM products
     WHERE id = $1;
   `
-  const values = [product.id];
-  return pool.query(queryString, values)
-  .then(res => res.rows[0])
+
+  return pool.query(queryString, [product_id])
+  .then(res => res.rows)
+  .then(()=>console.log("DELETE COMPLETED!!!"))
   .catch(err => console.log(err.stack));
 };
 exports.deleteProduct = deleteProduct;
@@ -190,14 +191,14 @@ return pool.query(queryString, values)
 };
 exports.getConversationsByProductId = getConversationsByProductId;
 
-const getProductById = function(product) {
+const getProductById = function(product_id) {
   const queryString = `
   SELECT *
   FROM products
-  WHERE id = 1;
+  WHERE id = $1;
   `
-  const values = [product.id]
-  return pool.query(queryString, values)
+
+  return pool.query(queryString, [product_id])
   .then(res => res.rows[0])
   .catch(err => console.log(err.stack));
 };
@@ -221,15 +222,31 @@ const addMessage = function(message) {
 };
 exports.addMessage = addMessage;
 
-const addFavourite = function(favourite) {
+const addFavourite = function(time_created, product_id, user_id) {
+  //if(!user_id || !product_id) return null;
   const queryString = `
-    INSERT INTO favorite_products (time_created, product_id, user_id)
+    INSERT INTO favourite_products (time_created, product_id, user_id)
     VALUES($1, $2, $3)
     RETURNING *;
   `
-  const values = [favourite]
+  const values = [time_created, product_id, user_id]
   return pool.query(queryString, values)
+  .then(res => {
+    console.log("res.rows", res.rows);
+    return res;
+  })
   .then(res => res.rows[0])
   .catch(err => console.log(err.stack));
 };
 exports.addFavourite = addFavourite;
+
+const getAllUsers = function() {
+  queryString = `
+  SELECT *
+  FROM users;
+  `
+  return pool.query(queryString)
+  .then(res => res.rows)
+  .catch(err => console.log(err.stack));
+}
+exports.getAllUsers = getAllUsers;
