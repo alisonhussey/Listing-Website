@@ -31,19 +31,18 @@
 
       <!-- Porducts Section -->
       <div class="productsPrice">
-        <h2>All Products</h2>
+        <h2>All Products 💫</h2>
         <div>
           <a href="/filterByPrice" ><b>Filter by Price</b></a>
           <a href="#!" ><b>/ Sort by Category</b></a>
         </div>
-
       </div>
       <hr>
       <% for(let product of products) { %>
       <div class="row" style="justify-content: center;">
-        <div class="col-sm-5">
+        <div class="col-sm-8">
           <div class="card h-100">
-            <a href=<%= `/products/${product.id}`%> ><img class="card-img-top" src= "<%= product.photo_url %>" alt="3-pack Printed T-shirts" width="700" height="600" name='product_id'></a>
+            <a href=<%= `/products/${product.id}`%> ><img class="card-img-top" src= "<%= product.photo_url %>" alt="3-pack Printed T-shirts" width="700" height="800" name='product_id'></a>
             <div class="card-body">
               <h4 class="card-title">
                 <a href=<%= `/products/${product.id}`%>><%= product.name %></a>
@@ -51,6 +50,7 @@
               </h4>
               <p class="card-text"><b><%= product.description %></b>
                 <p><%= product.color %></p>
+                <p>Available: <%= product.is_available %></p>
               </p>
             </div>
             <div class="card-footer" style="display: flex; justify-content: space-between;">
@@ -58,6 +58,9 @@
               <% if(isAdmin){ %>
               <form method="POST" action="<%=`/products/${product.id}`%>/delete">
                 <button type="submit" class="btn btn-secondary">Delete</button>
+              </form>
+              <form method="POST" action="<%=`/products/${product.id}`%>/sold">
+                <button type="submit" class="btn btn-secondary">Sold</button>
               </form>
               <a href="/products/new" class="btn btn-primary">NEW</a>
               <% } %>
