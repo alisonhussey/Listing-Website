@@ -44,20 +44,13 @@ const getUserWithId = function(id) {
 };
 exports.getUserWithId = getUserWithId;
 
-const addProduct = function(product) {
+const addProduct = function(product_name, product_photo_url, product_price, product_color, product_description, product_is_available, user_id, product_category_id) {
   const queryString = `INSERT INTO products (name, photo_url, price, color, description, is_available, user_id, product_category_id)
   VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
   RETURNING *;
   `
   const values = [
-    product.name,
-    product.photo_url,
-    product.price,
-    product.color,
-    product.description,
-    product.is_available,
-    product.user_id,
-    product.product_category_id
+    product_name, product_photo_url, product_price, product_color, product_description, product_is_available, user_id, product_category_id
   ];
   return pool.query(queryString, values)
   .then(res => res.rows[0])

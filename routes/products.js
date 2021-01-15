@@ -106,22 +106,27 @@ module.exports = (db) => {
   });
 
   router.post("/new", (req, res) => {
-    // let product_id = req.params.product_id;
-    // let user_id = req.session.userId;
-    // helpers.addFavourite(time_created, product_id, user_id)
-    //   .then(favouritedProduct => {
-    //     //console.log("Favourited Product", favouritedProduct);
-    //     const templateVars = {
-    //       user: user_id,
-    //       favouritedProduct: favouritedProduct
-    //     };
-    //     res.redirect("/products");
-    //   })
-    //   .catch(err => {
-    //     res
-    //       .status(500)
-    //       .json({ error: err.message });
-    //   });
+    let product_name = req.body.name;
+    let product_photo_url = req.body.photo_url;
+    let product_price = req.body.price;
+    let product_color = req.body.color;
+    let product_description = req.body.descripton;
+    let product_is_available = req.body.is_available;
+    let user_id = req.session.userId;
+    let product_category_id = req.body.product_category_id;
+    helpers.addProduct(product_name, product_photo_url, product_price, product_color, product_description, product_is_available, user_id, product_category_id)
+      .then(newProduct => {
+        const templateVars = {
+          user: user_id,
+          newProduct: newProduct
+        };
+        res.redirect("/products");
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
   });
 
   return router;
