@@ -94,6 +94,25 @@ module.exports = (db) => {
       });
   });
 
+  router.post("/:product_id/sold", (req, res) => {
+    let product_id = req.params.product_id;
+    let user_id = req.session.userId;
+    helpers.markAsSold(product_id)
+      .then(soldProduct => {
+        console.log("Sold Product", soldProduct);
+        const templateVars = {
+          user: user_id,
+          soldProduct: soldProduct
+        };
+        res.redirect("/products");
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
   router.post("/:product_id/delete", (req, res) => {
     const productID = req.params.product_id;
     helpers.deleteProduct(productID)

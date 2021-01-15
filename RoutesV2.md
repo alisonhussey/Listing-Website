@@ -13,13 +13,19 @@
 - get /                           (DONE)
 - get /:product_id                (DONE)
 - post /:product_id/favourite     (DONE)
-- post /:product_id/delete      
+- post /:product_id/delete        (DONE)
 - post /:product_id/messages
 - get /new                        (DONE)
-- post /new                       
+- post /new                       (DONE)
 - get /favourites                 (DONE)
 - get /messages
 - get /:category_id
+
+# Filter by Price
+- get /filter_by_price
+- post /filter_by_price
+
+
 
 # Categories (/categories)
 

@@ -58,13 +58,13 @@ const addProduct = function(product_name, product_photo_url, product_price, prod
 };
 exports.addProduct = addProduct;
 
-const markAsSold = function(product) {
+const markAsSold = function(product_id) {
   const queryString = `
   UPDATE products
   SET is_available = false
   WHERE id = $1;
   `
-  const values = [product.id];
+  const values = [product_id];
   return pool.query(queryString, values)
   .then(res => res.rows[0])
   .catch(err => console.log(err.stack));

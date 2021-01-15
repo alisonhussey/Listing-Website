@@ -16,7 +16,11 @@ We can navigate to the products page which shows every product that we have in o
 
 We can then navigate from the products page our product_id page where we can show all the data from each product entry in our product table, individually, depending on the id of the product we have shown.
 
-We can delete prodcuts from our product page and the database using our delete button. If we reset the database, only those products that are in the seeds will reappear.
+Admins can delete prodcuts from our product page and the database using our delete button. If we reset the database, only those products that are in the seeds will reappear.
+
+Admins can mark items as sold, while still showing them in the feed.
+
+Admins can add a new product to the product page, via the database.
 
 We can sign up as a new user, adding that user to the database.
 We can then log out. We can login again under the new user profile we created at sign in.
