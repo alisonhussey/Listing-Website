@@ -17,6 +17,8 @@ const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
 
+const helpers = require('./db/index')
+
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -38,31 +40,16 @@ app.use(cookieSession({
 }));
 
 // Separated Routes for each Resource
-const usersRoutes = require("./routes/users");
-
-const indexRoutes = require("./routes/index");
-const aboutRoutes = require("./routes/about");
-const signupRoutes = require("./routes/signup");
-const loginRoutes = require("./routes/login");
-const logoutRoutes = require("./routes/logout");
+const baseRoutes = require("./routes/base");
+const authRoutes = require("./routes/auth");
 const productsRoutes = require("./routes/products");
-const fbpRoutes = require("./routes/filterbyprice");
-const createnewRoutes = require("./routes/createnew");
-const searchRoutes = require("./routes/search");
-
 
 // Mount all resource routes
-app.use("/api/users", usersRoutes(db));
-
-app.use("/", indexRoutes(db))
-app.use("/about", aboutRoutes(db))
-app.use("/signup", signupRoutes(db));
-app.use("/login", loginRoutes(db));
-app.use("/logout", logoutRoutes(db));
+app.use("/", baseRoutes(db));
+app.use("/", authRoutes(db));
 app.use("/products", productsRoutes(db));
-app.use("/filterbyprice", fbpRoutes(db));
-app.use("/createnew", createnewRoutes(db));
-app.use("/search", searchRoutes(db));
+
+
 
 
 
@@ -154,9 +141,14 @@ app.use("/search", searchRoutes(db));
 //);
 
 //Product - Render Unique Page
-// app.get("/product/:products_id", (req, res) => {
-//   res.render("/productURL");
+// app.get("/products/:product_id", (req, res) => {
+//     const templateVars = {
+//       product_id: helpers.getProductById[req.params.product_id],
+//       user: req.session.userId
+//     };
+//     res.render("productTwo", templateVars);
 // });
+
 
 //List all messages for each user grouped by product
 //app.get("/messages", (req, res) => {

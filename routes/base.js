@@ -11,5 +11,14 @@ module.exports = (db) => {
     //console.log(req.session)
     res.render("index", templateVars);
 });
+
+//Render About page
+router.get("/about", (req, res) => {
+  const templateVars = {
+    user: req.session.userId
+  };
+  res.render("about", templateVars);
+});
+
   return router;
 };
