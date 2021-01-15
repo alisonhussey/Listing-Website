@@ -232,7 +232,7 @@ const addFavourite = function(time_created, product_id, user_id) {
   const values = [time_created, product_id, user_id]
   return pool.query(queryString, values)
   .then(res => {
-    console.log("res.rows", res.rows);
+    console.log("res.rows:", res.rows);
     return res;
   })
   .then(res => res.rows[0])
