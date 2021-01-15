@@ -34,12 +34,27 @@ module.exports = (db) => {
 
   //Render Favourites page
   router.get("/favourites", (req, res) => {
-    const templateVars = {
-      user: req.session.userId
-    };
-    //We don't have this page in views yet
-    //res.render("favourites", templateVars);
-    res.send("This is Get Favourites. The code just not completed!");
+    let user_id = req.session.userId;
+    helpers.getFavouritesByUser(user_id)
+      .then(products => {
+        const templateVars = {
+          user: user_id,
+          //isAdmin: req.session.isAdmin,
+          products: products
+        };
+        res.render('favourites', templateVars);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+    // const templateVars = {
+    //   user: req.session.userId
+    // };
+    // //We don't have this page in views yet
+    // //res.render("favourites", templateVars);
+    // res.send("This is Get Favourites. The code just not completed!");
   });
 
   //Rendering each Product Page
@@ -61,15 +76,16 @@ module.exports = (db) => {
 
   router.post("/:product_id/favourite", (req, res) => {
     let time_created = new Date();
-    let user_id = req.session.userId;
     let product_id = req.params.product_id;
-    helpers.addFavourite(time_created, user_id, product_id)
+    let user_id = req.session.userId;
+    helpers.addFavourite(time_created, product_id, user_id)
       .then(favouritedProduct => {
         //console.log("Favourited Product", favouritedProduct);
         const templateVars = {
-          user: req.session.userId,
+          user: user_id,
           favouritedProduct: favouritedProduct
         };
+        res.redirect("/products");
       })
       .catch(err => {
         res
@@ -90,11 +106,22 @@ module.exports = (db) => {
   });
 
   router.post("/new", (req, res) => {
-    const templateVars = {
-      user: req.session.userId,
-      product: product
-    };
-    res.render("newProduct", templateVars);
+    // let product_id = req.params.product_id;
+    // let user_id = req.session.userId;
+    // helpers.addFavourite(time_created, product_id, user_id)
+    //   .then(favouritedProduct => {
+    //     //console.log("Favourited Product", favouritedProduct);
+    //     const templateVars = {
+    //       user: user_id,
+    //       favouritedProduct: favouritedProduct
+    //     };
+    //     res.redirect("/products");
+    //   })
+    //   .catch(err => {
+    //     res
+    //       .status(500)
+    //       .json({ error: err.message });
+    //   });
   });
 
   return router;

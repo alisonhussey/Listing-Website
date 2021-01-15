@@ -22,7 +22,7 @@ We can sign up as a new user, adding that user to the database.
 We can then log out. We can login again under the new user profile we created at sign in.
 
 Only users who are logged in will see the button for favourites. We have, after much turmoil, typos, and tears decided to go with the proper Canadian spelling of favourite, ignoring the fact that the american spelling is best practice in the coding word.
-When logged in users click the favourites button, it will add that product id to their favourites
+When logged in users click the favourites button, it will add that product id to their favourites. We can then go to that user's favourites page and see everything they've favourited, starting at the most recent.
 ---
 
 We can filter our products by price, setting either just a minimum, just a maximum, or both to find products in the range between.

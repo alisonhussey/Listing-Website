@@ -31,38 +31,38 @@
       <h3>Create new Product</h3>
 
       </form>
-      <form action="/api/properties" method="post" id="new-property-form" class="new-property-form">
+      <form action="/products/new" method="post" id="new-property-form" class="new-property-form" style="margin-top: 5em;">
         <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__cost"> <%= product.name %> </label>
-          <input placeholder="name of product" type="text" name="product.name" id="new-property-form__cost">
+          <label for="new-property-form__cost">Product name: </label>
+          <input placeholder="name of product" type="text" name="name" id="new-property-form__cost">
         </div>
         <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__thumbnail"> <%= product.photo_url %> </label>
-          <input placeholder="http://" type="text" name="product.photo_url" id="new-property-form__thumbnail">
+          <label for="new-property-form__thumbnail"> Photo url: </label>
+          <input placeholder="http://" type="text" name="photo_url" id="new-property-form__thumbnail">
         </div>
         <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__cost"> <%= product.price %> </label>
-          <input placeholder="price" type="number" name="product.price" id="new-property-form__cost">
+          <label for="new-property-form__cost">  Price:  </label>
+          <input placeholder="price" type="number" name="price" id="new-property-form__cost">
         </div>
         <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__title"> <%= product.color %> </label>
-          <input type="text" name="color" placeholder="product.color" id="new-property-form__title">
+          <label for="new-property-form__title"> Color: </label>
+          <input type="text" name="color" placeholder="color" id="new-property-form__title">
         </div>
 
         <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__description"> <%= product.description %> </label>
-          <textarea placeholder="Description" name="product.description" id="property-form__description" cols="30" rows="3"></textarea>
+          <label for="new-property-form__description"> Description: </label>
+          <textarea placeholder="Description" name="description" id="property-form__description" cols="30" rows="3"></textarea>
 
         </div>
         <div class="d-flex mb-5 align-items-center">
-          <label class="control control--checkbox mb-0"><span class="caption"> <%= product.is_available %></span>
-            <input type="checkbox" checked="checked" name="product.is_available"/>
+          <label class="control control--checkbox mb-0"><span class="caption"> Is available? </span>
+            <input type="checkbox" checked="checked" name="is_available"/>
             <div class="control__indicator"></div>
           </label>
         </div>
         <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__cost"> <%= product.product_category_id %> </label>
-          <input placeholder="Category Id" type="number" name="product.product_category_id" id="new-property-form__cost">
+          <label for="new-property-form__cost"> Category: </label>
+          <input placeholder="Category Id" type="number" name="product_category_id" id="new-property-form__cost">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         <hr>

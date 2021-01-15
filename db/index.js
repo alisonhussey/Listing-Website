@@ -102,17 +102,17 @@ const getAllProducts = function() {
 };
 exports.getAllProducts = getAllProducts;
 
-const getFavouritesByUser = function(user) {
+const getFavouritesByUser = function(user_id) {
   const queryString = `
-  SELECT products.name
+  SELECT *
   FROM products
   JOIN favourite_products ON products.id = product_id
   JOIN users ON users.id = favourite_products.user_id
-  WHERE users.id = $1;
+  WHERE users.id = $1
+  ORDER BY favourite_products.time_created DESC;
   `
-  values = [user.id];
-  return pool.query(queryString, values)
-  .then(res => res.rows[0])
+  return pool.query(queryString, [user_id])
+  .then(res => res.rows)
   .catch(err => console.log(err.stack));
 };
 exports.getFavouritesByUser = getFavouritesByUser;
@@ -232,7 +232,6 @@ const addFavourite = function(time_created, product_id, user_id) {
   const values = [time_created, product_id, user_id]
   return pool.query(queryString, values)
   .then(res => {
-    console.log("res.rows:", res.rows);
     return res;
   })
   .then(res => res.rows[0])
