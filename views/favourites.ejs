@@ -44,7 +44,7 @@
             <div class="card-body">
               <h4 class="card-title">
                 <a href=<%= `/products/${product.id}`%>><%= product.name %></a>
-                <h5>$<%= product.price %></h5>
+                <h5>$<%= product.price/100 %></h5>
               </h4>
               <p class="card-text"><b><%= product.description %></b>
                 <p><%= product.color %>,</p>
