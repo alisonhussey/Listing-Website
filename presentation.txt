@@ -1,0 +1,36 @@
+— Which project did you chose and why
+We chose to do a spin on the By/Sell app, where we are a niche high end clothing seller, styled like an online boutique.
+
+— What each of you did, individually
+We decided to divide the tasks horizontally to start the week.
+Alison built the database, and the sql helper functions.
+Mahsa built the html and css
+Aleksa built the framework for the backend and routes.
+We communicated a lot about what we needed to accomplish while working on our individual portions, then came together at the end of the week to figure out how to heck to bring it all together. The routes were the most challenging portion of the project for all of us, so we spent a lot of time together doing the more complicated post routes and learning how to make everything work.
+
+— Show us what you built (demo)
+
+We have successfully tied our database to our ejs files so that through our routes, using sql query functions, we can directly manipulate the database from the screen.
+
+We can navigate to the products page which shows every product that we have in our database.
+
+We can then navigate from the products page our product_id page where we can show all the data from each product entry in our product table, individually, depending on the id of the product we have shown.
+
+We can delete prodcuts from our product page and the database using our delete button. If we reset the database, only those products that are in the seeds will reappear.
+
+We can sign up as a new user, adding that user to the database.
+We can then log out. We can login again under the new user profile we created at sign in.
+
+Only users who are logged in will see the button for favourites. We have, after much turmoil, typos, and tears decided to go with the proper Canadian spelling of favourite, ignoring the fact that the american spelling is best practice in the coding word.
+When logged in users click the favourites button, it will add that product id to their favourites
+---
+
+We can filter our products by price, setting either just a minimum, just a maximum, or both to find products in the range between.
+
+We can add a new product to the database, which will then show up in our product list. It can then of course be deleted.
+
+— What challenges you had and how you overcame them
+Our main challenge was getting the routes going. TinyApp was long enough ago that we were a little rusty on those concepts, but we overcame them by working together for a full day and basically pair programming everything on liveshare and videochat so that we knew exactly what changes needed to be made at every step and that we all had a solid understanding of how it all worked.
+
+— What you learned and/or what you’ll do differently in final projects
+We learned a lot about routes, about working together and the importance of teamwork and communication, and about the importance of good planning.

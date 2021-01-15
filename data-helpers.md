@@ -1,3 +1,5 @@
+# Helper Functions in db/index.js
+
 addUser
 
 getUserWithEmail
