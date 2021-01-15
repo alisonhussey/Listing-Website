@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <title>Home Page</title>
+    <title>Filter By Price</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -26,48 +26,20 @@
 
   <body>
     <%- include('partials/_header') %>
-
-    <main style="margin: 1em;">
-      <h3>Create new Product</h3>
-
-      </form>
-      <form action="/api/properties" method="post" id="new-property-form" class="new-property-form">
-        <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__cost"> <%= product.name %> </label>
-          <input placeholder="name of product" type="text" name="product.name" id="new-property-form__cost">
+    <main style="margin: 10em;">
+      <h3>Filter by Price</h3>
+      <form method="POST" action="/filterByPrice">
+        <div class="search-property-form__field-wrapper">
+          <label for="minimum-price">Minimum Price:</label>
+          <input type="number" name="minimum_price" placeholder="Minimum Price" id="search-property-form__minimum-price-per-night">
+          <label for="maximum-price">Maximum Price:</label>
+          <input type="number" name="maximum_price" placeholder="Maximum Price" id="search-property-form__maximum-price-per-night">
+          <input value="submit" type="submit">
         </div>
-        <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__thumbnail"> <%= product.photo_url %> </label>
-          <input placeholder="http://" type="text" name="product.photo_url" id="new-property-form__thumbnail">
-        </div>
-        <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__cost"> <%= product.price %> </label>
-          <input placeholder="price" type="number" name="product.price" id="new-property-form__cost">
-        </div>
-        <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__title"> <%= product.color %> </label>
-          <input type="text" name="color" placeholder="product.color" id="new-property-form__title">
-        </div>
-
-        <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__description"> <%= product.description %> </label>
-          <textarea placeholder="Description" name="product.description" id="property-form__description" cols="30" rows="3"></textarea>
-
-        </div>
-        <div class="d-flex mb-5 align-items-center">
-          <label class="control control--checkbox mb-0"><span class="caption"> <%= product.is_available %></span>
-            <input type="checkbox" checked="checked" name="product.is_available"/>
-            <div class="control__indicator"></div>
-          </label>
-        </div>
-        <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__cost"> <%= product.product_category_id %> </label>
-          <input placeholder="Category Id" type="number" name="product.product_category_id" id="new-property-form__cost">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <hr>
       </form>
     </main>
+
+
 
     <%- include('partials/_footer') %>
     <!-- Bootstrap JS -->

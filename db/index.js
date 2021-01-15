@@ -125,28 +125,28 @@ const getProductsByCategory = function(category){
 };
 exports.getProductsByCategory = getProductsByCategory;
 
-const getProductsByPrice = function(options){
-  const queryParams = [];
-  const queryString = `
+const getProductsByPrice = function(minimum_price, maximum_price){
+  let queryParams = [];
+  let queryString = `
   SELECT *
   FROM products
+
   `;
-  if (options.minimum_price) {
-    queryParams.push(options.minimum_price);
+  if (minimum_price) {
+    queryParams.push(minimum_price);
     queryString += `WHERE price/100 >= $${queryParams.length}`;
   }
-  if (options.maximum_price) {
-    queryParams.push(options.maximum_price);
+  if (maximum_price) {
+    queryParams.push(maximum_price);
     if (queryParams === 1) {
-      queryString += `AND price/100 <= $${queryParams.length}`;
-    } else {
-      queryString += `WHERE price/100 <= $${queryParams.length}`;
+      queryString += ` AND price/100 <= $${queryParams.length}`;
     }
-
   }
-
+  queryString += `
+  ORDER BY price;`
   return pool.query(queryString, queryParams)
   .then(res => res.rows)
+  .then(() => console.log("RES ROWS!!!!!!!:", res.rows))
   .catch(err => console.log(err.stack));
 };
 exports.getProductsByPrice = getProductsByPrice;

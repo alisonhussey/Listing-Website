@@ -32,6 +32,17 @@ module.exports = (db) => {
     res.render('newProduct', templateVars);
   });
 
+  router.get("/filterbyprice", (req, res) => {
+    // helpers.addProduct()
+    // .then(product => {
+    const templateVars = {
+      user: req.session.userId,
+      //isAdmin: req.session.isAdmin,
+      //product: product
+    };
+    res.render('filterByPrice', templateVars);
+  });
+
   //Render Favourites page
   router.get("/favourites", (req, res) => {
     let user_id = req.session.userId;
@@ -139,6 +150,27 @@ module.exports = (db) => {
           user: user_id,
           newProduct: newProduct
         };
+        res.redirect("/products");
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
+  router.post("/filterbyprice", (req, res) => {
+    let minimum_price = req.body.minimum_price;
+    let maximum_price = req.body.maximum_price;
+    let user_id = req.session.userId;
+    //let options = {minimum_price, maximum_price}
+    helpers.getProductsByPrice(minimum_price, maximum_price)
+      .then(filteredProducts => {
+        console.log("FILTERED PRODUCTS!!!!!!!!:", filteredProducts)
+        // const templateVars = {
+        //   user: user_id,
+        //   filteredProducts: filteredProducts
+        // };
         res.redirect("/products");
       })
       .catch(err => {
