@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <title>Products</title>
+    <title>Favourites</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -31,44 +31,50 @@
 
       <!-- Porducts Section -->
       <div class="productsPrice">
-        <h2>All Products</h2>
-        <div>
-          <a href="/filterByPrice" ><b>Filter by Price</b></a>
-          <a href="#!" ><b>/ Sort by Category</b></a>
-        </div>
-
+        <h2>All Favourites</h2>
+        <a href="/filterByPrice" ><b>Filter by Price</b></a>
+        <a href="#!" ><b>/ Sort by Category</b></a>
       </div>
-      <hr>
+
       <% for(let product of products) { %>
-      <div class="row" style="justify-content: center;">
+      <div class="row">
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
             <a href=<%= `/products/${product.id}`%> ><img class="card-img-top" src= "<%= product.photo_url %>" alt="3-pack Printed T-shirts" width="700" height="400" name='product_id'></a>
             <div class="card-body">
               <h4 class="card-title">
                 <a href=<%= `/products/${product.id}`%>><%= product.name %></a>
-                <h5>$<%= product.price/100 %></h5>
+                <h5>$<%= product.price %></h5>
               </h4>
               <p class="card-text"><b><%= product.description %></b>
-                <p><%= product.color %></p>
+                <p><%= product.color %>,</p>
+                <p>Pieces_3,</p>
+                <p>Composition_Cotton 100%,</p>
+                <p>Art. No._0713922018</p>
               </p>
             </div>
-            <div class="card-footer" style="display: flex; justify-content: space-between;">
-              <a href=<%= `/products/${product.id}`%> class="btn btn-primary">+ more</a>
-              <% if(isAdmin){ %>
+            <div class="card-footer">
+
+              <a href="/products/:product_id" class="btn btn-primary">+ more</a>
+
+
               <form method="POST" action="<%=`/products/${product.id}`%>/delete">
                 <button type="submit" class="btn btn-secondary">Delete</button>
               </form>
-              <a href="/products/new" class="btn btn-primary">NEW</a>
-              <% } %>
             </div>
           </div>
         </div>
         <% } %>
+
+
+
+
+
+
+
       </div>
       <!-- /.row -->
     </div>
-    <br>
     <!-- /.container -->
 
     <%- include('partials/_footer') %>
